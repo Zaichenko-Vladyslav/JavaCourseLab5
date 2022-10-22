@@ -25,11 +25,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // First paralelogram - paralelogram1
+        // First parallelogram - parallelogram1
 
-        Parallelogram parallelogram1 = new Parallelogram(4,
-                4,
-                Math.PI / 6);
+        Parallelogram parallelogram1 = new Parallelogram(4, 4, Math.PI / 6);
 
         // Example of using toString() method
 
@@ -37,18 +35,14 @@ public class Main {
 
         // Example of using hash() method
 
-        System.out.println("Hash Code paralelogram1 = " + parallelogram1.hashCode());
+        System.out.println("Hash Code parallelogram1 = " + parallelogram1.hashCode());
 
-        // Second paralelogram - paralelogram2
+        // Second parallelogram - parallelogram2
 
-        Parallelogram parallelogram2 = new Parallelogram(5,
-                5,
-                Math.PI / 6);
+        Parallelogram parallelogram2 = new Parallelogram(5, 5, Math.PI / 6);
 
         // Comparison of parallelograms equals() method
 
-        System.out.println("Paralelogram1 is equals to Paralelogram2 - " +
-                parallelogram1.equals(parallelogram2));
-
+        System.out.println("parallelogram1 is equals to parallelogram2 - " + parallelogram1.equals(parallelogram2));
     }
 }

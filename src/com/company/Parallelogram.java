@@ -25,45 +25,46 @@ import java.util.Objects;
 
 public class Parallelogram {
 
-    private int biggestSide;
-    private int smallerSide;
-    private double Angle;
+    private int bigSide;
+    private int smallSide;
+    private double angle;
 
     // 1. Constructor.
 
     public Parallelogram() {
+
     }
 
-    public Parallelogram(int biggestSide, int smallerSide, double Angle) {
-        this.biggestSide = biggestSide;
-        this.smallerSide = smallerSide;
-        this.Angle = Angle;
+    public Parallelogram(int bigSide, int smallSide, double angle) {
+        this.bigSide = bigSide;
+        this.smallSide = smallSide;
+        this.angle = angle;
     }
 
     // 2. Getters/Setters.
 
-    public int getBiggestSide() {
-        return biggestSide;
+    public int getBigSide() {
+        return bigSide;
     }
 
-    public void setBiggestSide(int biggestSide) {
-        this.biggestSide = biggestSide;
+    public void setBigSide(int bigSide) {
+        this.bigSide = bigSide;
     }
 
-    public int getSmallerSide() {
-        return smallerSide;
+    public int getSmallSide() {
+        return smallSide;
     }
 
-    public void setSmallerSide(int smallerSide) {
-        this.smallerSide = smallerSide;
+    public void setSmallSide(int smallSide) {
+        this.smallSide = smallSide;
     }
 
     public double getAngle() {
-        return Angle;
+        return angle;
     }
 
-    public void setAngle(double Angle) {
-        this.Angle = Angle;
+    public void setAngle(double angle) {
+        this.angle = angle;
     }
 
     // 3. 5 methods.
@@ -71,50 +72,49 @@ public class Parallelogram {
     // Method for finding the perimeter
 
     public double getPerimeter() {
-        return 2 * this.getBiggestSide() + 2 * this.getSmallerSide();
+        return 2 * this.getBigSide() + 2 * this.getSmallSide();
     }
 
     // Method for finding the Longest Diagonal
 
     public double getLongDiagonal() {
-        return Math.sqrt(this.getBiggestSide() * this.getBiggestSide() +
-                this.getSmallerSide() * this.getSmallerSide() + 2 *
-                this.getBiggestSide() * this.getSmallerSide() *
+        return Math.sqrt(this.getBigSide() * this.getBigSide() +
+                this.getSmallSide() * this.getSmallSide() + 2 *
+                this.getBigSide() * this.getSmallSide() *
                 Math.cos(this.getAngle()));
     }
 
     // Method for finding the Shortest Diagonal
 
     public double getShortDiagonal() {
-        return Math.sqrt(this.getBiggestSide() * this.getBiggestSide() +
-                this.getSmallerSide() * this.getSmallerSide() - 2 *
-                this.getBiggestSide() * this.getSmallerSide() *
+        return Math.sqrt(this.getBigSide() * this.getBigSide() +
+                this.getSmallSide() * this.getSmallSide() - 2 *
+                this.getBigSide() * this.getSmallSide() *
                 Math.cos(this.getAngle()));
     }
 
-    // Method "Is Parallelogram a rhombus?"
+    // Method for checking if parallelogram is a rhombus
 
     public boolean isRhombus() {
 
         boolean result = true;
 
-        if (this.getBiggestSide() == this.getSmallerSide()) {
+        if (this.getBigSide() == this.getSmallSide()) {
             result = true;
         } else {
             result = false;
         }
 
         return result;
-
     }
 
-    // Method "Is Parallelogram a Rectangle?"
+    // Method for checking if parallelogram is a rectangle
 
     public boolean isRectangle() {
 
         boolean result = true;
 
-        if (this.getBiggestSide() == this.getSmallerSide() &&
+        if (this.getBigSide() == this.getSmallSide() &&
                 this.getAngle() == Math.PI * 0.5) {
             result = true;
         } else {
@@ -122,23 +122,24 @@ public class Parallelogram {
         }
 
         return result;
-
     }
 
     // 4. Override toString() method
 
     @Override
     public String toString() {
-        return "Parallelogram {" +
-                "Big Side = " + biggestSide +
-                ", Small Side = " + smallerSide +
-                ", Angle = " + Angle +
-                ", \nPerimeter = " + this.getPerimeter() +
-                ", Long Diagonal = " + this.getLongDiagonal() +
-                ", \nShort Diagonal = " + this.getShortDiagonal() +
-                ", \nThis is Rectangle? - " + this.isRectangle() +
-                ", This is Rhombus? - " + this.isRhombus() +
-                '}' + "\n";
+        return "Parallelogram: " +
+                "\n" +
+                "\nBig Side = " + bigSide +
+                "\nSmall Side = " + smallSide +
+                "\nAngle = " + angle +
+                "\n" +
+                "\nPerimeter = " + this.getPerimeter() +
+                "\nLong Diagonal = " + this.getLongDiagonal() +
+                "\nShort Diagonal = " + this.getShortDiagonal() +
+                "\nThis is Rectangle? - " + this.isRectangle() +
+                "\nThis is Rhombus? - " + this.isRhombus() +
+                "\n";
     }
 
     // 5. Override hash() and equals() methods.
@@ -148,14 +149,14 @@ public class Parallelogram {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Parallelogram that = (Parallelogram) o;
-        return getBiggestSide() == that.getBiggestSide() &&
-                getSmallerSide() == that.getSmallerSide() &&
+        return getBigSide() == that.getBigSide() &&
+                getSmallSide() == that.getSmallSide() &&
                 Double.compare(that.getAngle(), getAngle()) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getBiggestSide(), getSmallerSide(), getAngle());
+        return Objects.hash(getBigSide(), getSmallSide(), getAngle());
     }
 }
 
